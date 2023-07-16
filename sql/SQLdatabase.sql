@@ -17,7 +17,7 @@ CREATE TABLE users (
 
 CREATE TABLE products (
     productID INT AUTO_INCREMENT,
-    productName varchar(50) NOT NULL,
+    productName TEXT NOT NULL,
     description TEXT NOT NULL,
     price FLOAT NOT NULL,
     CONSTRAINT `PK_productID` PRIMARY KEY (productID)
