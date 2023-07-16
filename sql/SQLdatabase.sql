@@ -1,6 +1,6 @@
-CREATE DATABASE koaj_store;
+CREATE DATABASE angular_store;
 
-USE koaj_store;
+USE angular_store;
 
 CREATE TABLE users (
     userID INT AUTO_INCREMENT,
