@@ -6,18 +6,20 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "build": "npm i",
     "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Gartner24/nike-store.git"
+    "url": "git+https://github.com/AngularStore/storebackend"
   },
-  "author": "gartner24",
+  "author": "adriancho91",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Gartner24/nike-store/issues"
+    "url": "https://github.com/AngularStore/storebackend/issues"
   },
-  "homepage": "https://github.com/Gartner24/nike-store#readme",
+  "homepage": "https://github.com/AngularStore/storebackend",
   "dependencies": {
     "cloudinary": "^1.37.3",
     "cors": "^2.8.5",
