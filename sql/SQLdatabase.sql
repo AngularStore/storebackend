@@ -1,4 +1,4 @@
-CREATE DATABASE nike_store;
+CREATE DATABASE koaj_store;
 
 USE koaj_store;
 
