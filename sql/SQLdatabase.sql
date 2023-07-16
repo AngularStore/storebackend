@@ -1,6 +1,6 @@
 CREATE DATABASE nike_store;
 
-USE nike_store;
+USE koaj_store;
 
 CREATE TABLE users (
     userID INT AUTO_INCREMENT,

@@ -20,6 +20,7 @@ const sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.p
   }
 });
 
+
 // Test connection
 sequelize.authenticate()
   .then(() => console.log('Database connected...'))
