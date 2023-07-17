@@ -53,45 +53,37 @@ inventoryRouter.get('/product/:productID', async (req, res) => {
 // Update an inventory by its productID (base path /api/inventory/product/:productID)
 inventoryRouter.put('/product/:productID', async (req, res) => {
 	try {
-		const productID = req.params.productID;
-		const { quantity, stockMin, stockMax } = req.body;
-
-		// Verify if the product exists
-		const product = await Product.findByPk(productID);
-
-		if (!product) {
-			return res.status(404).json({ message: 'Product not found' });
-		}
-
-		// Verify if the inventory exists
-		let inventory = await Inventory.findOne({
-			where: { productID },
+	  const productID = req.params.productID;
+	  const { inventoryData } = req.body; // Add inventoryData to get the entire object
+	   // Verify if the product exists
+	  const product = await Product.findByPk(productID);
+	   if (!product) {
+		return res.status(404).json({ message: 'Product not found' });
+	  }
+	   // Verify if the inventory exists
+	  let inventory = await Inventory.findOne({
+		where: { productID },
+	  });
+	   // If the inventory does not exist, create it
+	  if (!inventory) {
+		inventory = await Inventory.create({
+		  productID,
+		  ...inventoryData, // Add inventoryData to create the entire object
 		});
-
-		// If the inventory does not exist, create it
-		if (!inventory) {
-			inventory = await Inventory.create({
-				productID,
-				quantity,
-				stockMin,
-				stockMax,
-			});
-		} else {
-			// If the inventory exists, update it
-			await inventory.update({
-				quantity,
-				stockMin,
-				stockMax,
-			});
-		}
-
-		res.status(200).json({ message: 'Inventory updated successfully' });
+	  } else {
+		// If the inventory exists, update it
+		// Update the entire object and return the updated inventory
+		await inventory.update({
+		  ...inventoryData, // Update the entire object
+		});
+	  }
+	   res.status(200).json({ message: 'Inventory updated successfully' });
 	} catch (error) {
-		console.log(error);
-		res.status(500).json({
-			message: 'Error updating inventory',
-		});
+	  console.log(error);
+	  res.status(500).json({
+		message: 'Error updating inventory',
+	  });
 	}
-});
+  });
 
 export default inventoryRouter;
