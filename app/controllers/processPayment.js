@@ -4,7 +4,7 @@ import Product from '../models/product.models.js';
 
 dotenv.config();
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(sk_test_51NULwtFsdqrJgkQwgWNMefogdDxE9H7kF4mcnbo0iQ3bA5BhVhBNdtHQQz7NREFsdKQz73jtWJuQVFhzoARma6Kj00X3xvaDRy);
 
 // Controller to open the Stripe payment link
 const openStripePaymentLink = async (
