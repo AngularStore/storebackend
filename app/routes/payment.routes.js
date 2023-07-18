@@ -16,7 +16,7 @@ const paymentRouter = express.Router();
 paymentRouter.get("/success", async (req, res) => {
   try {
     const { totalPrice, userID, shippingAddress } = req.query; // Utilizamos req.query en lugar de req.body para obtener los parámetros enviados desde la pasarela de pago
-    const url = `https://koajstoreapi.onrender.com/`
+    const url = `https://store-angular-wheat.vercel.app/`
 
     // Obtaining the active carts of the user
     const activeCarts = await ShoppingCart.findAll({
@@ -74,7 +74,7 @@ paymentRouter.get("/success", async (req, res) => {
       }
     );
 
-    return res.redirect(`http://localhost:4200/paymentStatus/${userID}`);
+    return res.redirect(`https://store-angular-wheat.vercel.app/paymentStatus/${userID}`);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "Error creating the order" });
