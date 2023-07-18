@@ -16,6 +16,7 @@ paymentRouter.get("/success", async (req, res) => {
     const { totalPrice, userID, shippingAddress } = req.query; // Utilizamos req.query en lugar de req.body para obtener los parámetros enviados desde la pasarela de pago
     const url =
       process.env.NODE_ENV === "production"
+      // frontend url es: 
         ? process.env.PROD_FRONTEND_URL
         : process.env.DEV_FRONTEND_URL;
 

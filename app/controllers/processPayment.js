@@ -41,6 +41,7 @@ const openStripePaymentLink = async (
 			payment_method_types: ['card'],
 			line_items: products,
 			mode: 'payment',
+			//success_url have a problem to confirm the purchase
 			success_url: `https://koajstoreapi.onrender.com/api/payment/api/payment/success?cartID=${cartID}&totalPrice=${totalPrice}&shippingAddress=${shippingAddress}`,
 			cancel_url: `https://koajstoreapi.onrender.com/api/payment/cancel`,
 		});
