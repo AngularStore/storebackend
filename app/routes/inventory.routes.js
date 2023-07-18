@@ -73,7 +73,7 @@ inventoryRouter.put('/product/:productID', async (req, res) => {
 			inventory = await Inventory.create({
 				productID,
 				quantity,
-				stockMin,
+				stockMin,	
 				stockMax,
 			});
 		} else {

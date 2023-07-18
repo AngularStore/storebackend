@@ -68,6 +68,8 @@ userRoutes.post('/', async (req, res) => {
 
 // Update a user by its ID (base path /api/users/:userID)
 userRoutes.put('/:userID', async (req, res) => {
+	//update the information of a user the request body
+	//have an object with the information to update
 	try {
 		const user = await User.update(req.body, {
 			where: {
