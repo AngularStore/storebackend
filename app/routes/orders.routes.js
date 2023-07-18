@@ -138,6 +138,25 @@ orderRouter.post('/', async (req, res) => {
 			totalPrice += product.price * cart.quantity;
 		}
 
+
+		// Obtaining the total price of the order
+for (const cart of activeCarts) {
+	const product = await Product.findByPk(cart.productID);
+  
+	if (!product) {
+	  return res.status(404).json({ message: 'Product not found' });
+	}
+  
+	totalPrice += product.price * cart.quantity;
+  }
+  
+  // Asignar el precio total a los productos en los carros activos
+  for (const cart of activeCarts) {
+	cart.totalPrice = cart.quantity * cart.product.price;
+  }
+
+
+		
 		// Creating the order with stripe
 		const paymentLinkResponse = await openStripePaymentLink(
 			activeCarts,
