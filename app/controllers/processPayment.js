@@ -7,6 +7,7 @@ dotenv.config();
 const stripe = new Stripe('sk_test_51NULwtFsdqrJgkQwgWNMefogdDxE9H7kF4mcnbo0iQ3bA5BhVhBNdtHQQz7NREFsdKQz73jtWJuQVFhzoARma6Kj00X3xvaDRy');
 
 // Controller to open the Stripe payment link
+// Controller to open the Stripe payment link
 const openStripePaymentLink = async (
 	carts,
 	totalPrice,
@@ -44,8 +45,8 @@ const openStripePaymentLink = async (
 		payment_method_types: ["card"],
 		line_items: products,
 		mode: "payment",
-		success_url: `https://koajstoreapi.onrender.com/api/payment/success?userID=${userID}&totalPrice=${totalPrice}&shippingAddress=${shippingAddress}`,
-		cancel_url: `https://koajstoreapi.onrender.com/api/payment/cancel`,
+		success_url: `http://localhost:8080/api/payment/success?userID=${userID}&totalPrice=${totalPrice}&shippingAddress=${shippingAddress}`,
+		cancel_url: `http://localhost:8080/api/payment/cancel`,
 	  });
   
 	  if (!session) {

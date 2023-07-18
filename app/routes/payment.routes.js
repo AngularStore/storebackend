@@ -10,15 +10,13 @@ const paymentRouter = express.Router();
 
 // GET
 
+// GET
+
 // Obtaining the payment success page (base path /api/payment/success)
 paymentRouter.get("/success", async (req, res) => {
   try {
     const { totalPrice, userID, shippingAddress } = req.query; // Utilizamos req.query en lugar de req.body para obtener los parámetros enviados desde la pasarela de pago
-    const url =
-      process.env.NODE_ENV === "production"
-      // frontend url es: 
-        ? process.env.PROD_FRONTEND_URL
-        : process.env.DEV_FRONTEND_URL;
+    const url = `http://localhost:8080/`
 
     // Obtaining the active carts of the user
     const activeCarts = await ShoppingCart.findAll({
@@ -76,7 +74,7 @@ paymentRouter.get("/success", async (req, res) => {
       }
     );
 
-    return res.redirect(`http://localhost:4200/${userID}`);
+    return res.redirect(`http://localhost:4200/paymentStatus/${userID}`);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "Error creating the order" });

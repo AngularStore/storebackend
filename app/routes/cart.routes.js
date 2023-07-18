@@ -225,8 +225,8 @@ cartRouter.post('/', async (req, res) => {
 		const transporter = nodemailer.createTransport({
 			service: 'gmail',
 			auth: {
-				user: process.env.EMAIL_USER,
-				pass: process.env.EMAIL_PASSWORD,
+				user:`koajstora3@gmail.com`,
+				pass: `Laverde-teamamos-`,
 			},
 		});
 
@@ -234,7 +234,7 @@ cartRouter.post('/', async (req, res) => {
 		if (inventory.quantity === 0 || inventory.quantity === 1 || inventory.quantity < inventory.stockMin) {
 			// Send email to admin
 			const mailOptions = {
-				from: process.env.EMAIL_USER,
+				from: `koajstora3@gmail.com`,
 				to: allUsersAdmin.map((user) => user.email),
 				subject: 'Restock',
 				text: `The product ${product.productName} is running out of stock, please restock`,

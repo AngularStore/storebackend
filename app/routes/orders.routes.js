@@ -125,6 +125,7 @@ orderRouter.post("/", async (req, res) => {
 
     let totalPrice = 0;
 
+
     // Obtaining the total price of the order
     for (const cart of activeCarts) {
       const product = await Product.findByPk(cart.productID);
@@ -151,6 +152,10 @@ orderRouter.post("/", async (req, res) => {
         url: paymentLinkResponse.url,
       });
     }
+//error creating the order in the database
+//fix the problem
+
+
     if (!paymentLinkResponse.success) {
       // Error creating the payment link
       return res.status(400).json({
