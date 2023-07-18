@@ -16,7 +16,7 @@ const paymentRouter = express.Router();
 paymentRouter.get("/success", async (req, res) => {
   try {
     const { totalPrice, userID, shippingAddress } = req.query; // Utilizamos req.query en lugar de req.body para obtener los parámetros enviados desde la pasarela de pago
-    const url = `http://localhost:8080/`
+    const url = `https://koajstoreapi.onrender.com/`
 
     // Obtaining the active carts of the user
     const activeCarts = await ShoppingCart.findAll({
@@ -68,7 +68,7 @@ paymentRouter.get("/success", async (req, res) => {
 
     // Updating the cart status
     await ShoppingCart.update(
-      { cartStatus: "inactive" },
+      { cartStatus: "Ordered" },
       {
         where: { userID, cartStatus: "active" },
       }

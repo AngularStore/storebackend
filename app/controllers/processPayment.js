@@ -7,7 +7,6 @@ dotenv.config();
 const stripe = new Stripe('sk_test_51NULwtFsdqrJgkQwgWNMefogdDxE9H7kF4mcnbo0iQ3bA5BhVhBNdtHQQz7NREFsdKQz73jtWJuQVFhzoARma6Kj00X3xvaDRy');
 
 // Controller to open the Stripe payment link
-// Controller to open the Stripe payment link
 const openStripePaymentLink = async (
 	carts,
 	totalPrice,
