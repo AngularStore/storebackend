@@ -82,8 +82,8 @@ inventoryRouter.put('/product/:productID', async (req, res) => {
 			inventory.quantity = quantity;
 			inventory.stockMin = stockMin;
 			inventory.stockMax = stockMax;
+			//update the inventory
 			await inventory.save();
-
 		}
 
 		res.status(200).json({ message: 'Inventory updated successfully' });
