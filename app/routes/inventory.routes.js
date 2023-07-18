@@ -78,11 +78,12 @@ inventoryRouter.put('/product/:productID', async (req, res) => {
 			});
 		} else {
 			// If the inventory exists, update it
-			await inventory.update({
-				quantity,
-				stockMin,
-				stockMax,
-			});
+			//Update correctly the inventory
+			inventory.quantity = quantity;
+			inventory.stockMin = stockMin;
+			inventory.stockMax = stockMax;
+			await inventory.save();
+
 		}
 
 		res.status(200).json({ message: 'Inventory updated successfully' });
