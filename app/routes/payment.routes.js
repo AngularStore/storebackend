@@ -76,7 +76,7 @@ paymentRouter.get("/success", async (req, res) => {
       }
     );
 
-    return res.redirect(`${url}/paymentStatus/${userID}`);
+    return res.redirect(`http://localhost:4200/paymentStatus/${userID}`);
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "Error creating the order" });
